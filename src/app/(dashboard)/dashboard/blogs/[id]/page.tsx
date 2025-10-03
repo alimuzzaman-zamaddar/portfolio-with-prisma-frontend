@@ -10,7 +10,7 @@ import { http } from "@/lib/http";
 import Editor from "@/components/Editor";
 import { useParams, useRouter } from "next/navigation";
 
-// ---------- Validation ----------
+
 const schema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters"),
   slug: z
@@ -37,7 +37,6 @@ export default function EditBlogPage() {
     resolver: zodResolver(schema),
   });
 
-  // ---------- Load Blog ----------
   useEffect(() => {
     (async () => {
       try {
@@ -55,7 +54,6 @@ export default function EditBlogPage() {
     })();
   }, [params.id, reset]);
 
-  // ---------- Submit ----------
   const onSubmit = async (values: FormValues) => {
     try {
       await http.put(`/posts/${params.id}`, values);
@@ -66,7 +64,6 @@ export default function EditBlogPage() {
     }
   };
 
-  // ---------- Delete ----------
   const onDelete = async () => {
     if (!confirm("Are you sure you want to delete this blog?")) return;
     try {
@@ -80,7 +77,6 @@ export default function EditBlogPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-4 sm:px-6 py-8 sm:py-10">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <h1 className="text-2xl font-bold text-slate-900">Edit Blog</h1>
         <button
@@ -92,12 +88,10 @@ export default function EditBlogPage() {
         </button>
       </div>
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
       >
-        {/* Title */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Title
@@ -111,8 +105,6 @@ export default function EditBlogPage() {
             <p className="mt-1 text-sm text-red-600">{errors.title.message}</p>
           )}
         </div>
-
-        {/* Slug */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Slug
@@ -126,8 +118,6 @@ export default function EditBlogPage() {
             <p className="mt-1 text-sm text-red-600">{errors.slug.message}</p>
           )}
         </div>
-
-        {/* Excerpt */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Excerpt
@@ -143,8 +133,6 @@ export default function EditBlogPage() {
             </p>
           )}
         </div>
-
-        {/* Content */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Content
@@ -160,8 +148,6 @@ export default function EditBlogPage() {
             </p>
           )}
         </div>
-
-        {/* Submit */}
         <button
           type="submit"
           disabled={isSubmitting}

@@ -8,8 +8,6 @@ import toast from "react-hot-toast";
 import { http } from "@/lib/http";
 import { setAuthToken } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-
-// ---------- Validation ----------
 const schema = z
   .object({
     name: z.string().min(2, "Name is required"),
@@ -33,14 +31,10 @@ export default function RegisterPage() {
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
   });
-
-  // ---------- Submit ----------
   const onSubmit = async (values: FormValues) => {
     try {
       const { name, email, password } = values;
       await http.post("/auth/register", { name, email, password });
-
-      // Auto-login
       const res = await http.post("/auth/login", { email, password });
       const token = res.data?.token;
       if (token) setAuthToken(token);
@@ -55,7 +49,6 @@ export default function RegisterPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-        {/* Heading */}
         <h1 className="text-2xl font-bold text-slate-900 text-center">
           Create an Account
         </h1>
@@ -63,13 +56,11 @@ export default function RegisterPage() {
           Join us and start building today.
         </p>
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-6 space-y-5"
           noValidate
         >
-          {/* Full Name */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Full Name
@@ -84,8 +75,6 @@ export default function RegisterPage() {
               <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
             )}
           </div>
-
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Email
@@ -103,8 +92,6 @@ export default function RegisterPage() {
               </p>
             )}
           </div>
-
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Password
@@ -122,8 +109,6 @@ export default function RegisterPage() {
               </p>
             )}
           </div>
-
-          {/* Confirm Password */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Confirm Password
@@ -141,8 +126,6 @@ export default function RegisterPage() {
               </p>
             )}
           </div>
-
-          {/* Submit */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -151,8 +134,6 @@ export default function RegisterPage() {
             {isSubmitting ? "Creating…" : "Create Account"}
           </button>
         </form>
-
-        {/* Extra link */}
         <p className="mt-6 text-center text-sm text-slate-600">
           Already have an account?{" "}
           <a

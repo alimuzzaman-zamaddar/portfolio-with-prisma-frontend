@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getAuthToken } from "@/lib/auth";
 
-const apiBaseUrl ="https://portfolio-backend-omega-rust.vercel.app/api";
+const apiBaseUrl = "https://portfolio-backend-omega-rust.vercel.app/api";
 
 export const http = axios.create({
   baseURL: apiBaseUrl,

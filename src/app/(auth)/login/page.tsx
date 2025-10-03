@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -9,7 +10,6 @@ import { setAuthToken } from "@/lib/auth";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-// ---------- Validation ----------
 const schema = z.object({
   email: z.string().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
@@ -27,7 +27,6 @@ export default function LoginPage() {
     resolver: zodResolver(schema),
   });
 
-  // ---------- Submit ----------
   const onSubmit = async (values: FormValues) => {
     try {
       const res = await http.post("/auth/login", values);
@@ -45,21 +44,17 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen items-center justify-center px-4">
       <div className="w-full max-w-md rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-        {/* Heading */}
         <h1 className="text-2xl font-bold text-slate-900 text-center">
           Owner Login
         </h1>
         <p className="mt-1 text-center text-sm text-slate-600">
           Access your dashboard securely
         </p>
-
-        {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="mt-6 space-y-5"
           noValidate
         >
-          {/* Email */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Email
@@ -77,8 +72,6 @@ export default function LoginPage() {
               </p>
             )}
           </div>
-
-          {/* Password */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Password
@@ -96,8 +89,6 @@ export default function LoginPage() {
               </p>
             )}
           </div>
-
-          {/* Submit */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -107,16 +98,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Extra link */}
-        <p className="mt-6 text-center text-sm text-slate-600">
-          Don’t have an account?{" "}
-          <a
-            href="/register"
-            className="font-semibold text-blue-600 hover:underline"
-          >
-            Create one
-          </a>
-        </p>
       </div>
     </main>
   );
