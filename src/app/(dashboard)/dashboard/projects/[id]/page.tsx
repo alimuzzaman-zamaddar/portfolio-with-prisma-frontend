@@ -10,7 +10,6 @@ import { http } from "@/lib/http";
 import Editor from "@/components/Editor";
 import { useParams, useRouter } from "next/navigation";
 
-// ---------- Validation Schema ----------
 const schema = z.object({
   title: z.string().min(3, "Title must be at least 3 characters"),
   slug: z
@@ -47,7 +46,6 @@ export default function EditProjectPage() {
     resolver: zodResolver(schema),
   });
 
-  // ---------- Load Existing Project ----------
   useEffect(() => {
     (async () => {
       try {
@@ -73,7 +71,6 @@ export default function EditProjectPage() {
     })();
   }, [params.id, reset]);
 
-  // ---------- Submit ----------
   const onSubmit = async (values: any) => {
     try {
       await http.put(`/projects/${params.id}`, {
@@ -92,7 +89,6 @@ export default function EditProjectPage() {
     }
   };
 
-  // ---------- Delete ----------
   const onDelete = async () => {
     if (!confirm("Are you sure you want to delete this project?")) return;
     try {
@@ -106,7 +102,6 @@ export default function EditProjectPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 sm:px-6 py-8 sm:py-10">
-      {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <h1 className="text-2xl font-bold text-slate-900">Edit Project</h1>
         <button
@@ -118,12 +113,10 @@ export default function EditProjectPage() {
         </button>
       </div>
 
-      {/* Form */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
       >
-        {/* Title */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Title
@@ -137,8 +130,6 @@ export default function EditProjectPage() {
             <p className="mt-1 text-sm text-red-600">{errors.title.message}</p>
           )}
         </div>
-
-        {/* Slug */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Slug
@@ -152,8 +143,6 @@ export default function EditProjectPage() {
             <p className="mt-1 text-sm text-red-600">{errors.slug.message}</p>
           )}
         </div>
-
-        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Description
@@ -171,7 +160,6 @@ export default function EditProjectPage() {
           )}
         </div>
 
-        {/* Content */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Content
@@ -188,9 +176,7 @@ export default function EditProjectPage() {
           )}
         </div>
 
-        {/* Grid fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Thumbnail */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Thumbnail URL
@@ -206,7 +192,6 @@ export default function EditProjectPage() {
             )}
           </div>
 
-          {/* Live URL */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Live URL
@@ -222,7 +207,6 @@ export default function EditProjectPage() {
             )}
           </div>
 
-          {/* GitHub URL */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               GitHub URL
@@ -238,7 +222,6 @@ export default function EditProjectPage() {
             )}
           </div>
 
-          {/* Tech stack */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Tech stack (comma-separated)
@@ -250,7 +233,6 @@ export default function EditProjectPage() {
             />
           </div>
 
-          {/* Featured */}
           <div className="flex items-center gap-2">
             <input
               id="isFeatured"
@@ -262,8 +244,6 @@ export default function EditProjectPage() {
               Featured
             </label>
           </div>
-
-          {/* Order */}
           <div>
             <label className="block text-sm font-medium text-slate-700">
               Order
@@ -281,7 +261,6 @@ export default function EditProjectPage() {
           </div>
         </div>
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={isSubmitting}
