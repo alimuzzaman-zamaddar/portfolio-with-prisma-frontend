@@ -23,7 +23,7 @@ export default function LandingPage() {
                 <span className="text-fuchsia-600"> faster</span>.
               </h1>
               <p className="mt-4 max-w-xl text-slate-600">
-                I’m Morol — a full-stack developer creating performant,
+                I’m Alimuzzaman — a full-stack developer creating performant,
                 aesthetic, and reliable digital products.
               </p>
 
