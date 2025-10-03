@@ -1,37 +1,183 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌟 My Portfolio – Frontend
 
-## Getting Started
+A modern, responsive **Portfolio Website Frontend** built with **Next.js + TypeScript + Tailwind CSS**, connected to an ExpressJS + Prisma backend.
 
-First, run the development server:
+This project allows visitors to view **blogs, projects, and about section** while giving the **portfolio owner** secure access to a dashboard for managing blogs and projects.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🚀 Live Deployment
+- **Frontend URL:** [https://protfolio-frontend-prisma.vercel.app](https://protfolio-frontend-prisma.vercel.app)  
+- **Backend API:** [https://portfolio-backend-omega-rust.vercel.app](https://portfolio-backend-omega-rust.vercel.app)
+
+---
+
+## 📹 Demo Video
+> 🎥 A **10–15 minute walkthrough video** explaining all features, authentication, and CRUD operations will be submitted along with this project.
+
+---
+
+## 🔑 Admin Credentials
+For testing the admin dashboard:
+
+```
+Email: admin@portfolio.com
+Password: admin123
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📖 Project Overview & Features
+This is the **Frontend** for the full-stack Portfolio Website.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔓 Public Pages
+- **Home Page:** Welcoming landing page with navigation
+- **About Page:** Personal bio, skills, and journey
+- **Projects Showcase:** Responsive grid of projects with live/demo links
+- **Blog Section:**  
+  - Blogs list page (ISR enabled for fresh content)
+  - Individual blog detail pages (ISR + dynamic routing)
 
-## Learn More
+### 🔐 Private Pages (Owner Only)
+- **Authentication:** Login with JWT (via backend)
+- **Dashboard:**  
+  - Manage (Create, Read, Update, Delete) Blogs  
+  - Manage Projects  
 
-To learn more about Next.js, take a look at the following resources:
+### 🛠️ Core Features
+- Modern, responsive UI (TailwindCSS)
+- **SEO-friendly & Fast**: Uses Next.js SSG/ISR
+- **Rich text editor** for blog & project content
+- Client-side validation with **React Hook Form + Zod**
+- User notifications with **react-hot-toast**
+- Fully integrated with backend APIs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ Technology Stack
+**Frontend:**
+- [Next.js 15](https://nextjs.org/) with App Router
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/) for styling
+- [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) for validation
+- [Axios](https://axios-http.com/) for API calls
+- [React Hot Toast](https://react-hot-toast.com/) for notifications
+- [Lucide-react](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/) for icons
+- [Framer Motion](https://www.framer.com/motion/) for subtle animations
 
-## Deploy on Vercel
+**Backend (for reference):**
+- [Express.js](https://expressjs.com/) + [Prisma](https://www.prisma.io/)
+- PostgreSQL database
+- Authentication with **JWT + bcrypt**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# portfolio-with-prisma-frontend
+## 🛠️ Setup Instructions
+
+### 1. Clone Repositories
+```bash
+# Frontend
+git clone <frontend-repo-url>
+cd portfolio-website-frontend
+
+# Backend
+git clone <backend-repo-url>
+cd portfolio-website-backend
+```
+
+### 2. Install Dependencies
+Make sure you have **Node.js ≥ 18** installed.
+
+For frontend:
+```bash
+cd portfolio-website-frontend
+npm install
+```
+
+For backend (for reference):
+```bash
+cd portfolio-website-backend
+npm install
+```
+
+### 3. Configure Environment Variables
+Create a `.env` file in both repos.
+
+For **frontend**:
+```
+NEXT_PUBLIC_BACKEND_URL=https://portfolio-backend-omega-rust.vercel.app
+```
+
+For **backend** (example):
+```
+DATABASE_URL=postgresql://<your-connection-string>
+JWT_SECRET=super-secret-key
+PORT=5000
+FRONTEND_URL=https://protfolio-frontend-prisma.vercel.app
+SEED_OWNER_EMAIL=admin@portfolio.com
+SEED_OWNER_PASSWORD=admin123
+SEED_OWNER_NAME=Portfolio Owner
+```
+
+### 4. Run Locally
+In development mode:
+```bash
+# Frontend
+npm run dev
+
+# Backend
+npm run dev
+```
+
+Visit frontend at: `http://localhost:3000`
+
+### 5. Build for Production
+```bash
+npm run build
+npm start
+```
+
+---
+
+## 🌎 Deployment
+Both repos are deployed on **Vercel**:
+- **Frontend:** deployed via `vercel --prod`
+- **Backend:** deployed via `vercel --prod` with CORS properly configured
+
+---
+
+## 📂 Project Structure (Frontend)
+```
+src/
+ ├─ app/               # Next.js App Router pages
+ ├─ components/        # Reusable UI components
+ ├─ lib/               # Axios/http configs, auth helpers
+ ├─ styles/            # Global styles (Tailwind)
+ └─ types/             # TypeScript types
+```
+
+---
+
+## 🧪 Testing the Project
+1. Open the live site at [Frontend URL](https://protfolio-frontend-prisma.vercel.app)
+2. Browse **Blogs**, **Projects**, and **About**
+3. Login with admin credentials
+4. Test **CRUD** for blogs and projects via dashboard
+5. Confirm content appears on public pages after ISR refresh
+
+---
+
+## 📈 Notes & Best Practices
+- Clean and modular code with semantic HTML
+- ISR/SSG for performance and SEO
+- Mobile-first responsive design
+- CORS configured on backend to allow frontend access
+- Rate-limiting and Helmet for backend security
+
+---
+
+## ✍️ Author
+**Alimuzzaman Zamaddar**  
+- Portfolio project created as part of full-stack development coursework.
+
+---
