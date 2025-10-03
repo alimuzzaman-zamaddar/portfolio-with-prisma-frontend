@@ -33,7 +33,7 @@ export default function NewBlogPage() {
     resolver: zodResolver(schema),
   });
 
-  // ---------- Submit ----------
+
   const onSubmit = async (values: FormValues) => {
     try {
       await http.post("/posts", values);
@@ -52,7 +52,7 @@ export default function NewBlogPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
       >
-        {/* Title */}
+
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Title
@@ -67,7 +67,7 @@ export default function NewBlogPage() {
           )}
         </div>
 
-        {/* Slug */}
+
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Slug
@@ -82,7 +82,6 @@ export default function NewBlogPage() {
           )}
         </div>
 
-        {/* Excerpt */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Excerpt
@@ -94,7 +93,6 @@ export default function NewBlogPage() {
           />
         </div>
 
-        {/* Content */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Content
@@ -111,7 +109,7 @@ export default function NewBlogPage() {
           )}
         </div>
 
-        {/* Submit */}
+
         <button
           type="submit"
           disabled={isSubmitting}
