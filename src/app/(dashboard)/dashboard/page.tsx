@@ -10,7 +10,6 @@ export default async function DashboardPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-20 space-y-12 text-slate-800">
-      {/* ---------- HERO SECTION ---------- */}
       <section className="text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
           Dashboard
@@ -20,8 +19,6 @@ export default async function DashboardPage() {
           control center for your portfolio.
         </p>
       </section>
-
-      {/* ---------- AUTH ALERT ---------- */}
       {!hasToken && (
         <div className="mx-auto max-w-lg rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-700 flex items-start gap-3">
           <FiAlertTriangle
@@ -35,10 +32,8 @@ export default async function DashboardPage() {
         </div>
       )}
 
-      {/* ---------- ACTION CARDS ---------- */}
       <section>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {/* Blogs */}
           <Link
             href="/dashboard/blogs"
             className="group flex flex-col items-start rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-500 transition"
@@ -54,7 +49,6 @@ export default async function DashboardPage() {
             </p>
           </Link>
 
-          {/* Projects */}
           <Link
             href="/dashboard/projects"
             className="group flex flex-col items-start rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-blue-500 transition"
@@ -71,8 +65,6 @@ export default async function DashboardPage() {
           </Link>
         </div>
       </section>
-
-      {/* ---------- CTA / TIP SECTION ---------- */}
       <section className="mt-12">
         <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-fuchsia-600 p-8 text-center shadow-md">
           <h3 className="text-2xl font-bold text-white">

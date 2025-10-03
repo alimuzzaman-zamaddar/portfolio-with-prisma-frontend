@@ -28,7 +28,6 @@ export default function DashboardProjects() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 sm:px-6 py-12 sm:py-16 text-slate-800">
-      {/* ---------- HERO SECTION ---------- */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
         <div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
@@ -47,7 +46,6 @@ export default function DashboardProjects() {
         </Link>
       </div>
 
-      {/* ---------- LOADING STATE ---------- */}
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[...Array(6)].map((_, i) => (
@@ -73,7 +71,6 @@ export default function DashboardProjects() {
           to add your first one!
         </p>
       ) : (
-        /* ---------- PROJECT CARDS ---------- */
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((p) => (
             <div

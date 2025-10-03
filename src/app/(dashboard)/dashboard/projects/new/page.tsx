@@ -69,7 +69,6 @@ export default function NewProjectPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="mt-8 space-y-6 rounded-xl border border-slate-200 bg-white p-6 shadow-sm"
       >
-        {/* Title */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Title
@@ -84,7 +83,6 @@ export default function NewProjectPage() {
           )}
         </div>
 
-        {/* Slug */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Slug
@@ -99,7 +97,6 @@ export default function NewProjectPage() {
           )}
         </div>
 
-        {/* Description */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
             Description
@@ -117,7 +114,6 @@ export default function NewProjectPage() {
           )}
         </div>
 
-        {/* Content */}
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-1">
             Content
@@ -134,7 +130,6 @@ export default function NewProjectPage() {
           )}
         </div>
 
-        {/* Grid fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-slate-700">
@@ -221,7 +216,6 @@ export default function NewProjectPage() {
           </div>
         </div>
 
-        {/* Submit */}
         <button
           type="submit"
           disabled={isSubmitting}

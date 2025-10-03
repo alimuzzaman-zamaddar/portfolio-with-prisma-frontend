@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      {/* 1) HERO */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -15,7 +14,6 @@ export default function LandingPage() {
       >
         <div className="container mx-auto px-4 py-16 lg:py-24">
           <div className="grid gap-10 lg:grid-cols-2 items-center">
-            {/* Text side */}
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
                 💻 Modern • ⚡ Fast • ✨ Elegant
@@ -55,7 +53,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Visual / mockup */}
             <div className="relative mx-auto w-full max-w-md">
               <div className="relative rounded-[2rem] border border-slate-200 bg-white p-4 shadow-xl">
                 <div className="rounded-xl bg-slate-50 p-4">
@@ -108,8 +105,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* 2) WHAT I DO */}
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-center text-2xl font-bold text-slate-900">
           What I Do
@@ -142,8 +137,6 @@ export default function LandingPage() {
           ))}
         </div>
       </section>
-
-      {/* 3) HIGHLIGHTS */}
       <section className="px-4 py-16">
         <div className="container mx-auto rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm">
           <div className="grid gap-8 lg:grid-cols-3">
@@ -165,8 +158,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* 4) FOR CLIENTS vs COLLABORATORS */}
       <section className="container mx-auto px-4 py-16">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-2xl border border-slate-200 bg-gradient-to-br from-blue-50 to-fuchsia-50 p-6">
@@ -204,8 +195,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* 5) TESTIMONIALS */}
       <section className="px-4 py-16">
         <div className="container mx-auto">
           <h2 className="text-center text-2xl font-bold text-slate-900">
@@ -235,8 +224,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* 6) CTA */}
       <section className="px-4 pb-20">
         <div className="container mx-auto rounded-3xl bg-gradient-to-r from-blue-600 to-fuchsia-600 p-8 text-center shadow-xl">
           <h3 className="text-2xl font-bold text-white">
@@ -265,7 +252,6 @@ export default function LandingPage() {
   );
 }
 
-/* ---------- Helper Components ---------- */
 function Highlight({
   title,
   desc,
