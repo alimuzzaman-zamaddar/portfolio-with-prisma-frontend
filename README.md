@@ -166,18 +166,3 @@ src/
 5. Confirm content appears on public pages after ISR refresh
 
 ---
-
-## 📈 Notes & Best Practices
-- Clean and modular code with semantic HTML
-- ISR/SSG for performance and SEO
-- Mobile-first responsive design
-- CORS configured on backend to allow frontend access
-- Rate-limiting and Helmet for backend security
-
----
-
-## ✍️ Author
-**Alimuzzaman Zamaddar**  
-- Portfolio project created as part of full-stack development coursework.
-
----
